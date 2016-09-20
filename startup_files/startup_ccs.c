@@ -66,7 +66,8 @@ extern void GPIOIntHandler(void);
 extern void AONRTCIntHandler(void);
 extern void UART0IntHandler(void);
 extern void TRNGIntHandler(void);
-
+extern void RFCCPE1IntHandler(void);
+extern void RFCCPE0IntHandler(void);
 
 //*****************************************************************************
 //
@@ -111,14 +112,14 @@ void (* const g_pfnVectors[])(void) =
     IntDefaultHandler,                      // The SysTick handler
     GPIOIntHandler,                         // AON edge detect
     IntDefaultHandler,                      // I2C
-    IntDefaultHandler,                      // RF Core Command & Packet Engine 1
+    RFCCPE1IntHandler,                      // RF Core Command & Packet Engine 1
     IntDefaultHandler,                      // AON SpiSplave Rx, Tx and CS
     AONRTCIntHandler,                       // AON RTC
     UART0IntHandler,                        // UART0 Rx and Tx
     IntDefaultHandler,                      // AUX software event 0
     IntDefaultHandler,                      // SSI0 Rx and Tx
     IntDefaultHandler,                      // SSI1 Rx and Tx
-    IntDefaultHandler,                      // RF Core Command & Packet Engine 0
+    RFCCPE0IntHandler,                      // RF Core Command & Packet Engine 0
     IntDefaultHandler,                      // RF Core Hardware
     IntDefaultHandler,                      // RF Core Command Acknowledge
     IntDefaultHandler,                      // I2S
